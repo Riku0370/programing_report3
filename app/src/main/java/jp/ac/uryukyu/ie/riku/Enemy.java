@@ -9,17 +9,26 @@ package jp.ac.uryukyu.ie.riku;
  * Created by tnal on 2016/11/13.
  */
 public class Enemy {
-    public String name;
-    public int hitPoint;
-    public int attack;
-    public boolean dead;
-
+    private String name;
+    private int hitPoint;
+    private int attack;
+    private boolean dead;
     /**
      * コンストラクタ。名前、最大HP、攻撃力を指定する。
      * @param name モンスター名
      * @param maximumHP モンスターのHP
      * @param attack モンスターの攻撃力
      */
+
+    public String getName(){
+        return name;
+    }
+    public boolean getDead(){
+        return dead;
+    }
+    public int getHitPoint(){
+        return hitPoint;
+    }
     public Enemy (String name, int maximumHP, int attack) {
         this.name = name;
         hitPoint = maximumHP;
@@ -38,7 +47,7 @@ public class Enemy {
             return;
         }
         int damage = (int)(Math.random() * attack);
-        System.out.printf("%sの攻撃！%sに%dのダメージを与えた！！\n", name, hero.name, damage);
+        System.out.printf("%sの攻撃！%sに%dのダメージを与えた！！\n", name, hero.getName(), damage);
         hero.wounded(damage);
     }
 
